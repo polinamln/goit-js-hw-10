@@ -5,10 +5,16 @@ const form = document.querySelector(".form");
 const stateInputs = document.querySelectorAll('input[name="state"]');
 const InputDelay = document.querySelector('input[name="delay"]');
 
-form.addEventListener('submit', cratePromise);
+form.addEventListener('submit', formSubmit);
+
+function formSubmit(event) {
+    cratePromise(event)
+};
 
 function cratePromise(event) {
     event.preventDefault();
+
+    InputDelay.value = '';
 
     const delay = parseInt(InputDelay.value);
     const state = [...stateInputs].find(input => input.checked).value;

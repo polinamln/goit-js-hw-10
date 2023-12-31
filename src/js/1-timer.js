@@ -22,6 +22,8 @@ const refs = {
 
 
 refs.startBTN.disabled = true;
+refs.input.disabled = false;
+
 
 refs.startBTN.addEventListener('click', handleSubmit)
 
@@ -55,6 +57,7 @@ const picker = flatpickr(refs.input, options);
 function handleSubmit() {
     const selectedDate = picker.selectedDates[0];
     refs.startBTN.disabled = true;
+    refs.input.disabled = true;
     const endTime = selectedDate.getTime();
     updateTimer(endTime);
 };
