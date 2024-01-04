@@ -3,7 +3,7 @@ import "izitoast/dist/css/iziToast.min.css";
 
 const form = document.querySelector(".form");
 const stateInputs = document.querySelectorAll('input[name="state"]');
-const InputDelay = document.querySelector('input[name="delay"]');
+const inputDelay = document.querySelector('input[name="delay"]');
 
 form.addEventListener('submit', formSubmit);
 
@@ -14,9 +14,8 @@ function formSubmit(event) {
 function cratePromise(event) {
     event.preventDefault();
 
-    InputDelay.value = '';
 
-    const delay = parseInt(InputDelay.value);
+    const delay = parseInt(inputDelay.value);
     const state = [...stateInputs].find(input => input.checked).value;
 
     const promise = new Promise((resolve, reject) => {
@@ -42,7 +41,10 @@ function cratePromise(event) {
             title: 'Error',
             message: `❌ Rejected promise in ${delay}ms`,
 });
-        })
+    })
+    
+
+    form.reset()
 
 };
 
